@@ -31,7 +31,7 @@ export async function createInvoice(formData: FormData) {
         `;
   } catch (error) {
     return {
-      message: `Database Error: Failed to create invoices: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      message: 'Database Error: Failed to create invoices',
     };
   }
 
@@ -61,7 +61,7 @@ export async function updateInvoice(id: string, formData: FormData) {
   `;
   } catch (error) {
     return {
-      message: `Database Error: Failed to update invoices: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      message: 'Database Error: Failed to update invoices',
     };
   }
 
@@ -70,11 +70,12 @@ export async function updateInvoice(id: string, formData: FormData) {
 }
 
 export async function deleteInvoice(id: string) {
+  throw new Error('Failed to delete invoice');
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
   } catch (error) {
     return {
-      message: `Database Error: Failed to delete invoices: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      message: 'Database Error: Failed to delete invoices',
     };
   }
   revalidatePath('/dashboard/invoices');
