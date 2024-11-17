@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 Test commit
 
+Another Test Commit  
+
 ## Getting Started
 
 First, run the development server:
